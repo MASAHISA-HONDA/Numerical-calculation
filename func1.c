@@ -134,10 +134,11 @@ double lcm(int a,int b){
         a = b;
         b = tmp;
     }
- 
-    double temp = gcd(a,b);
+    double p = a;
+    double q = b;
+    double temp_d = gcd(a,b);
 
-    return a*b/temp;
+    return p*q/temp_d;
 }
 
 

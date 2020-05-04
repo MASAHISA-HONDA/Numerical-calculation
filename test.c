@@ -31,8 +31,8 @@ int main(){
     ans_max = max_d(&a[0][0],N*2);
     printf("a_max = %f\n",ans_max);
 
-    int mm = 6786546;
-    int nn = 465446553;
+    int mm = 994765761;
+    int nn = 965365799;
 
     int ans_gcd;
     printf("ans_gcd = %d\n",gcd(mm,nn));
@@ -40,7 +40,7 @@ int main(){
     int ans_lcm;
     printf("ans_lcm = %f\n",lcm(mm,nn));
     
-    printf("%d",digits(mm));
+    printf("%d\n",digits(mm));
     
     
 
