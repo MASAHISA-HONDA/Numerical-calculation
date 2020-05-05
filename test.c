@@ -9,7 +9,13 @@ int main(){
     a[0][0] = 1.0; 
     a[0][1] = 2.0; 
     a[1][0] = 3.0; 
-    a[1][1] = 1.0;
+    a[1][1] = 4.0;
+
+    double b[N][N];
+    b[0][0] = 5.0; 
+    b[0][1] = 6.0; 
+    b[1][0] = 7.0; 
+    b[1][1] = 8.0; 
 
     double x[N];
     x[0] = 1.0;
@@ -17,14 +23,53 @@ int main(){
 
     double out[N];
     int i;
+    int j;
     for(i=0;i<N;i++){
         out[i] = 0.0;
+    }
+
+    /*********************/
+    double c[N][N];
+    c[0][0] = 3.0; 
+    c[0][1] = 2.0; 
+    c[1][0] = 1.0; 
+    c[1][1] = 2.0; 
+
+    double out3[N];
+    x[0] = 13.0;
+    x[1] = 5.0;
+
+    double x1[N];
+    for(i=0;i<N;i++){
+        out[i] = 0.0;
+    }
+
+    gauss(&c[0][0],&x1[0],&out3[0],N);
+    for(i=0;i<N;i++){
+        printf("x[%d] = %f\n",i,x[i]);
+    }
+
+    /*********************/
+
+    double out2[N][N];
+    for(i=0;i<N;i++){
+        for(j=0;j<N;j++){
+            out2[i][j] = 0.0;
+        }
     }
 
     mxv1(&a[0][0],&x[0],&out[0],N);
 
     for(i=0;i<N;i++){
         printf("out[%d] = %f\n",i,out[i]);
+    }
+
+    mxm2(&a[0][0],&b[0][0],&out2[0][0],N);
+
+    for(i=0;i<N;i++){
+        for(j=0;j<N;j++){
+            printf("out2[%d][%d] = %f\n",i,j,out2[i][j]);
+        }
     }
 
     double ans_max;

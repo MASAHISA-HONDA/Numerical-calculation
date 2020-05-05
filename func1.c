@@ -14,8 +14,7 @@ double eps1(double *in,int size){
     /*output行列*/
     double *out;
     out = (double *)malloc(sizeof(double)*size);
-    
-    
+      
 	*(e+0) = *(in+0);
 	*(e+1) = *(in+1);
 
@@ -46,9 +45,6 @@ double eps1(double *in,int size){
 
     return ans;
 }
-
-
-
 /************************　　正方行列とベクトルの積　　*****************************/
 void mxv1(double *A,double *x,double *out,int size){
 
@@ -65,10 +61,26 @@ void mxv1(double *A,double *x,double *out,int size){
             /*printf("temp%d = %f\n",j,temp);*/
             *(out+i) = temp;
         }
-
     }
 }
-
+/************************　　正方行列同士の積　　********************************/
+void mxm2(double *a,double *b,double *out,int size){
+    double s;
+    int i,j,k;
+    /*デバッグ用*/
+    /*printf("%f\n",*(a+0));*/
+    /*printf("%f\n",*(b+0));*/
+    for(i=0;i<size;i++){
+        for(j=0;j<size;j++){
+            s = 0.0;
+            for(k=0;k<size;k++){
+                s += *(a+size*i+k) * *(b+size*k+j);
+            }
+            *(out+size*i+j) = s;
+            /*printf("%f\n",s);*/
+        }
+    }
+}
 /*********************配列を受け取り、最大値をリターンする**************************/
 double max_d(double *in,int size){
     double temp;
@@ -81,7 +93,6 @@ double max_d(double *in,int size){
 
     return temp;
 }
-
 /***************２つの引数を取り、最大公約数をリターンする**************************/
 int gcd(int a,int b){
  
@@ -104,8 +115,7 @@ int gcd(int a,int b){
  
   return b;
 }
-
-/*****************************整数の桁数をリターンする*****************************/
+/***************************10進数整数を引数に取り、桁数をリターンする*****************************/
 int digits(int a)
 {
   int count = 0;
@@ -117,9 +127,7 @@ int digits(int a)
  
   return count;
 }
-
-
-/***************２つの引数を取り、最小公倍数をリターンする**************************/
+/*****************************２つの引数を取り、最小公倍数をリターンする****************************/
 double lcm(int a,int b){
  
     int tmp;
@@ -127,7 +135,7 @@ double lcm(int a,int b){
 
     /*オーバーフロー対策*/
     int keta = digits(a) + digits(b);
-    if(keta >= 300){a = 0;}
+    if(keta >= 20){a = 0;}
 
     if(a<b){
         tmp = a;
@@ -140,6 +148,7 @@ double lcm(int a,int b){
 
     return p*q/temp_d;
 }
+/*****************************ガウス消去法によって連立方程式を解く****************************/
 
 
 

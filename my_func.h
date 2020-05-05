@@ -5,8 +5,11 @@
 int digits(int a);
 double eps1(double *in,int size);
 void mxv1(double *A,double *x,double *out,int size);
+void mxm2(double *a,double *b,double *out,int size);
 double max_d(double *in,int size);
 int gcd(int a,int b);
 double lcm(int a,int b);
+void gauss(double *A,double *x,double *b,int n);
+
 
 #endif
