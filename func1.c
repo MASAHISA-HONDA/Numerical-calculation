@@ -50,8 +50,16 @@ void mxv1(double *A,double *x,double *out,int size){
 
     int row = size;
     int column = size;
-
+    
     int i,j;
+    /*for(i=0;i<size;i++){
+        for(j=0;j<size;j++){
+            printf("%f\n",*(A+size*i+j));
+        }
+    }
+    for(i=0;i<size;i++){
+        printf("%f\n",*(x+i));
+    }*/
     for(i=0;i<row;i++){
 
         double temp = 0.0;
@@ -90,7 +98,6 @@ double max_d(double *in,int size){
     for(i=0;i<size;i++){
         if( *(in+i) >= temp){ temp = *(in+i); }
     }
-
     return temp;
 }
 /***************２つの引数を取り、最大公約数をリターンする**************************/
@@ -112,7 +119,6 @@ int gcd(int a,int b){
     b = r;
     r = a % b;
   }
- 
   return b;
 }
 /***************************10進数整数を引数に取り、桁数をリターンする*****************************/
@@ -124,7 +130,6 @@ int digits(int a)
     a = a / 10;
     ++count;
   }
- 
   return count;
 }
 /*****************************２つの引数を取り、最小公倍数をリターンする****************************/
@@ -148,7 +153,33 @@ double lcm(int a,int b){
 
     return p*q/temp_d;
 }
-/*****************************ガウス消去法によって連立方程式を解く****************************/
-
-
-
+/**************************配列初期化*******************************/
+void array_init(double *out,int n){
+    int i,j;
+    for(i=0;i<n;i++){
+        for(j=0;j<n;j++){
+            *(out+n*i+j) = 0.0;
+        }
+    }
+}
+/**************************配列print関数*******************************/
+void print_a1(double *out,int n){
+    int i;
+    for(i=0;i<n;i++){
+        printf("[%d] = %f\n",i,*(out+i));
+    }
+}
+void print_a2(double *out,int n){
+    int i,j;
+    for(i=0;i<n;i++){
+        for(j=0;j<n;j++){
+            printf("[%d][%d] = %f\n",i,j,*(out+i));
+        }
+    }
+}
+void print_d(double a){
+    printf("%f\n",a);
+}
+void print_i(int a){
+    printf("%d\n",a);
+}

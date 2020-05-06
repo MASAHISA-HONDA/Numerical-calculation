@@ -9,7 +9,11 @@ void mxm2(double *a,double *b,double *out,int size);
 double max_d(double *in,int size);
 int gcd(int a,int b);
 double lcm(int a,int b);
-void gauss(double *A,double *x,double *b,int n);
-
+void gauss(double *A,double *B,double *x,int n);
+void array_init(double *out,int n);
+void print_a1(double *out,int n);
+void print_a2(double *out,int n);
+void print_d(double a);
+void print_i(int a);
 
 #endif
